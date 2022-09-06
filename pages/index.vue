@@ -123,8 +123,10 @@
 </template>
 
 <script>
+import constant from '@/helper/constant'
 import { readSheetNames } from 'read-excel-file/index.js'
 import readXlsxFile from 'read-excel-file'
+
 export default {
   layout: 'default',
   //
@@ -142,8 +144,13 @@ export default {
         this.sheetNames = sheetNames
       })
       this.sheetNames.forEach((element) => {
+        if (constant.DEFINE_UNUSED_TABLE.includes(element)) {
+          return false
+        }
         readXlsxFile(input.files[0], { sheet: element }).then((rows) => {
           console.log(rows)
+          console.log(rows[3])
+          console.log(rows[3][2])
         })
       })
     },
