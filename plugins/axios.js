@@ -14,6 +14,8 @@ export default function ({ app, $axios, route, redirect, store }) {
         break
       case 412:
         break
+      case 415:
+        break
       case 500:
         text = app.i18n.t('actions.errors.500')
         app.$toast.error(text)
