@@ -134,6 +134,7 @@ export default {
     return {
       switch1: false,
       sheetNames: [],
+      radioGroup: '0',
     }
   },
   methods: {
@@ -149,8 +150,7 @@ export default {
         }
         readXlsxFile(input.files[0], { sheet: element }).then((rows) => {
           console.log(rows)
-          console.log(rows[3])
-          console.log(rows[3][2])
+          console.log(rows[2][1])
         })
       })
     },
